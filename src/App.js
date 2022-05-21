@@ -1,6 +1,7 @@
 import React from 'react';
 import { autorun } from 'mobx';
 import { presenter } from './Shared/Presenter';
+import Form from './components/Form';
 
 function App() {
   const [viewModel, setViewModel] = React.useState({});
@@ -18,7 +19,8 @@ function App() {
     <>
       <div>{JSON.stringify(viewModel, null, 2)}</div>
       <h2>{viewModel.formattedString}</h2>
-      <form style={{ display: 'flex' }}>
+      <Form presenter={presenter} />
+      {/* <form style={{ display: 'flex' }}>
         <input
           value={viewModel.fName}
           onChange={(e) =>
@@ -39,7 +41,7 @@ function App() {
         >
           Submit
         </button>
-      </form>
+      </form> */}
     </>
   );
 }
